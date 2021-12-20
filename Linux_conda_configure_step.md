@@ -81,3 +81,17 @@ trusted-host = https://pypi.tuna.tsinghua.edu.cn
 使用命令`pip config list`，测试是否成功修改了`pip`的源为清华源。
 
 至此，conda虚拟环境配置完成了，可以按照项目的需要来安装具体的包了。
+
+## 常用的conda命令整理
+以下为一些常用的conda命令
+
+**1.显示目前已有的所有conda虚拟环境**
+``` bash
+conda env list
+conda info --envs
+```
+
+**2.删除conda虚拟环境**
+``` bash
+conda remove --name superglue --all
+```
