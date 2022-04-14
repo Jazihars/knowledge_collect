@@ -80,7 +80,7 @@ import torchvision
 from torch import nn
 from PIL import Image
 
-img = Image.open("/data/zitong.yin/dongshouxuedeeplearning/cat1.jpg")
+img = Image.open("/data/XXX/YYY/cat1.jpg")
 
 
 def apply(img, aug, num_rows=2, num_cols=4):
@@ -107,7 +107,7 @@ import torchvision
 from torch import nn
 from PIL import Image
 
-img = Image.open("/data/zitong.yin/dongshouxuedeeplearning/cat1.jpg")
+img = Image.open("/data/XXX/YYY/cat1.jpg")
 
 
 def apply(img, aug, num_rows=2, num_cols=4):
@@ -136,7 +136,7 @@ import torchvision
 from torch import nn
 from PIL import Image
 
-img = Image.open("/data/zitong.yin/dongshouxuedeeplearning/cat1.jpg")
+img = Image.open("/data/XXX/YYY/cat1.jpg")
 
 
 def apply(img, aug, num_rows=2, num_cols=4):
@@ -161,7 +161,7 @@ import torchvision
 from torch import nn
 from PIL import Image
 
-img = Image.open("/data/zitong.yin/dongshouxuedeeplearning/cat1.jpg")
+img = Image.open("/data/XXX/YYY/cat1.jpg")
 
 
 def apply(img, aug, num_rows=2, num_cols=4):
@@ -186,7 +186,7 @@ import torchvision
 from torch import nn
 from PIL import Image
 
-img = Image.open("/data/zitong.yin/dongshouxuedeeplearning/cat1.jpg")
+img = Image.open("/data/XXX/YYY/cat1.jpg")
 
 
 def apply(img, aug, num_rows=2, num_cols=4):
@@ -214,7 +214,7 @@ import torchvision
 from torch import nn
 from PIL import Image
 
-img = Image.open("/data/zitong.yin/dongshouxuedeeplearning/cat1.jpg")
+img = Image.open("/data/XXX/YYY/cat1.jpg")
 
 
 def apply(img, aug, num_rows=2, num_cols=4):
