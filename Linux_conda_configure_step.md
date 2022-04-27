@@ -68,6 +68,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 
 ### 5.修改conda虚拟环境的默认安装路径：
 **（注意：这一步是可选的。如果`/home`目录空间足够大，这一步是不需要的。）**
+
 众所周知，一般来说，home目录无法存放过多的环境，因此有必要换一个空间足够大的地方，来安装以后的众多conda虚拟环境。在home目录下，有一个隐藏的文件`.condarc`。使用`code .condarc`打开`.condarc`文件，在最下面添加如下的代码：
 ```
 envs_dirs:  
