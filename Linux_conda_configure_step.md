@@ -1,7 +1,13 @@
 # Linux系统上配置conda虚拟环境的步骤
-这个文档记录了如何从零开始在Linux系统上配置conda虚拟环境
+这个文档记录了如何从零开始在Linux系统上配置conda虚拟环境。
 
-一般来说，我会使用vscode和remote-ssh进行远程开发。在vscode终端里，输入如下的命令：
+最初的问题：**在使用Python的开发中，为什么要使用conda虚拟环境？**
+
+这是因为，不同的代码会运行在不同版本的依赖环境中。这些依赖环境通常是指不同版本的软件包。比如，[Swin Transformer](https://github.com/microsoft/Swin-Transformer/blob/main/get_started.md#install)需要`python=3.7`、`PyTorch==1.7.1`、`torchvision==0.8.2`、`timm==0.3.2`的安装环境，而其他一些开源代码或许需要其他版本的一些依赖环境。使用`conda`来创建不同版本的依赖环境，做到不同版本的环境彼此隔离，是一个非常有效的办法。
+
+创建相互隔离的依赖环境的另一个办法是使用`docker`，这个办法比较复杂，我暂时还没有打通相关流程，或许以后再更新吧。
+
+一般来说，我会使用Visual Studio Code（VS Code）和Remote-SSH进行远程开发。在使用ssh远程连接Linux开发机后，使用`` Ctrl + ` ``快捷键打开vscode的Linux终端，输入如下的命令：
 ``` bash
 lsb_release -a
 ```
@@ -13,7 +19,7 @@ Description:    CentOS Linux release 7.5.1804 (Core)
 Release:        7.5.1804
 Codename:       Core
 ```
-由此可知，我是在CentOS这个Linux发行版上进行远程开发的。
+由此可知，我是在安装了CentOS这个Linux发行版的开发机上进行远程开发的。
 或者，如果上述命令无法使用，可以使用下述命令：
 ``` bash
 cat /etc/redhat-release
@@ -206,3 +212,92 @@ conda info --envs
 conda remove --name superglue --all
 ```
 这个命令删除了一个名为`superglue`的conda虚拟环境以及里面的所有包。
+
+### 3.查看当前虚拟环境中的包
+在激活当前的名为`leaves`的conda虚拟环境的条件下，运行下述命令：
+``` bash
+conda list
+```
+看到了如下输出：
+```
+# packages in environment at /home/users/XXX/miniconda3/envs/leaves:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+_openmp_mutex             4.5                       2_gnu    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+black                     22.3.0                   pypi_0    pypi
+blas                      1.0                         mkl    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+bzip2                     1.0.8                h7f98852_4    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+ca-certificates           2021.10.8            ha878542_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+click                     8.1.2                    pypi_0    pypi
+cudatoolkit               11.1.1              h6406543_10    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+ffmpeg                    4.3                  hf484d3e_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+freetype                  2.10.4               h0708190_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+giflib                    5.2.1                h36c2ea0_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+gmp                       6.2.1                h58526e2_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+gnutls                    3.6.13               h85f3911_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+intel-openmp              2021.4.0          h06a4308_3561    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+jbig                      2.1               h7f98852_2003    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+jpeg                      9e                   h166bdaf_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lame                      3.100             h7f98852_1001    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lcms2                     2.12                 hddcbb42_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+ld_impl_linux-64          2.36.1               hea4e1c9_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lerc                      3.0                  h9c3ff4c_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libdeflate                1.10                 h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libffi                    3.4.2                h7f98852_5    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libgcc-ng                 11.2.0              h1d223b6_16    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libgomp                   11.2.0              h1d223b6_16    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libiconv                  1.16                 h516909a_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libnsl                    2.0.0                h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libpng                    1.6.37               h21135ba_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libstdcxx-ng              11.2.0              he4da1e4_16    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libtiff                   4.3.0                h542a066_3    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libuuid                   2.32.1            h7f98852_1000    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libuv                     1.43.0               h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libwebp                   1.2.2                h3452ae3_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libwebp-base              1.2.2                h7f98852_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libxcb                    1.13              h7f98852_1004    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libzlib                   1.2.11            h166bdaf_1014    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lz4-c                     1.9.3                h9c3ff4c_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mkl                       2021.4.0           h06a4308_640    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+mkl-service               2.4.0            py39h7e14d7c_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mkl_fft                   1.3.1            py39h0c7bc48_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mkl_random                1.2.2            py39hde0f152_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mypy-extensions           0.4.3                    pypi_0    pypi
+ncurses                   6.3                  h27087fc_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+nettle                    3.6                  he412f7d_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+numpy                     1.21.5           py39he7a7128_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+numpy-base                1.21.5           py39hf524024_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+openh264                  2.1.1                h780b84a_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+openjpeg                  2.4.0                hb52868f_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+openssl                   3.0.2                h166bdaf_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+pathspec                  0.9.0                    pypi_0    pypi
+pillow                    9.1.0            py39hae2aec6_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+pip                       22.0.4             pyhd8ed1ab_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+platformdirs              2.5.2                    pypi_0    pypi
+pthread-stubs             0.4               h36c2ea0_1001    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+python                    3.9.12          h2660328_1_cpython    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+python_abi                3.9                      2_cp39    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+pytorch                   1.10.1          py3.9_cuda11.1_cudnn8.0.5_0    <unknown>
+pytorch-mutex             1.0                        cuda    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+readline                  8.1                  h46c0cb4_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+setuptools                62.1.0           py39hf3d152e_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+six                       1.16.0             pyh6c4a22f_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+sqlite                    3.38.2               h4ff8645_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+tk                        8.6.12               h27826a3_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+tomli                     2.0.1                    pypi_0    pypi
+torchvision               0.11.2               py39_cu111    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+typing_extensions         4.2.0              pyha770c72_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+tzdata                    2022a                h191b570_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+wheel                     0.37.1             pyhd8ed1ab_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+xorg-libxau               1.0.9                h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+xorg-libxdmcp             1.1.3                h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+xz                        5.2.5                h516909a_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+zlib                      1.2.11            h166bdaf_1014    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+zstd                      1.5.2                ha95c52a_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+```
+这就是leaves环境下安装的软件包。或者，在当前虚拟环境激活的条件下，运行下述命令：
+``` bash
+pip list
+```
+也可以查看当前虚拟环境安装的软件包。
