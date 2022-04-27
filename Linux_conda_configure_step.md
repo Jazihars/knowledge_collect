@@ -303,4 +303,149 @@ pip list
 ```
 也可以查看当前虚拟环境安装的软件包。
 
+我们再来做一个测试。如果我们不激活任何conda虚拟环境时，运行`conda list`命令，可以看到如下的输出：
+```
+[XXXXXXXXXXXXX ~]$ conda list
+# packages in environment at /home/users/XXX/miniconda3:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                        main    defaults
+_openmp_mutex             4.5                       1_gnu    defaults
+brotlipy                  0.7.0           py39h27cfd23_1003    defaults
+ca-certificates           2022.3.29            h06a4308_1    defaults
+certifi                   2021.10.8        py39h06a4308_2    defaults
+cffi                      1.15.0           py39hd667e15_1    defaults
+charset-normalizer        2.0.4              pyhd3eb1b0_0    defaults
+conda                     4.12.0           py39h06a4308_0    defaults
+conda-package-handling    1.8.1            py39h7f8727e_0    defaults
+cryptography              36.0.0           py39h9ce1e76_0    defaults
+idna                      3.3                pyhd3eb1b0_0    defaults
+ld_impl_linux-64          2.35.1               h7274673_9    defaults
+libffi                    3.3                  he6710b0_2    defaults
+libgcc-ng                 9.3.0               h5101ec6_17    defaults
+libgomp                   9.3.0               h5101ec6_17    defaults
+libstdcxx-ng              9.3.0               hd4cf53a_17    defaults
+ncurses                   6.3                  h7f8727e_2    defaults
+openssl                   1.1.1n               h7f8727e_0    defaults
+pip                       21.2.4           py39h06a4308_0    defaults
+pycosat                   0.6.3            py39h27cfd23_0    defaults
+pycparser                 2.21               pyhd3eb1b0_0    defaults
+pyopenssl                 22.0.0             pyhd3eb1b0_0    defaults
+pysocks                   1.7.1            py39h06a4308_0    defaults
+python                    3.9.7                h12debd9_1    defaults
+readline                  8.1.2                h7f8727e_1    defaults
+requests                  2.27.1             pyhd3eb1b0_0    defaults
+ruamel_yaml               0.15.100         py39h27cfd23_0    defaults
+setuptools                61.2.0           py39h06a4308_0    defaults
+sqlite                    3.38.2               hc218d9a_0    defaults
+tk                        8.6.11               h1ccaba5_0    defaults
+tqdm                      4.64.0           py39h06a4308_0    defaults
+tzdata                    2022a                hda174b7_0    defaults
+urllib3                   1.26.9           py39h06a4308_0    defaults
+wheel                     0.37.1             pyhd3eb1b0_0    defaults
+xz                        5.2.5                h7b6447c_0    defaults
+yaml                      0.2.5                h7b6447c_0    defaults
+zlib                      1.2.12               h7f8727e_2    defaults
+```
+我们激活名为`leaves`的conda虚拟环境，然后再次运行`conda list`命令，可以看到如下的输出：
+```
+(leaves) [XXXXXXXXXXXXX ~]$ conda list
+# packages in environment at /home/users/XXX/miniconda3/envs/leaves:
+#
+# Name                    Version                   Build  Channel
+_libgcc_mutex             0.1                 conda_forge    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+_openmp_mutex             4.5                       2_gnu    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+black                     22.3.0                   pypi_0    pypi
+blas                      1.0                         mkl    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+bzip2                     1.0.8                h7f98852_4    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+ca-certificates           2021.10.8            ha878542_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+click                     8.1.2                    pypi_0    pypi
+cudatoolkit               11.1.1              h6406543_10    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+cycler                    0.11.0                   pypi_0    pypi
+ffmpeg                    4.3                  hf484d3e_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+fonttools                 4.33.3                   pypi_0    pypi
+freetype                  2.10.4               h0708190_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+giflib                    5.2.1                h36c2ea0_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+gmp                       6.2.1                h58526e2_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+gnutls                    3.6.13               h85f3911_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+intel-openmp              2021.4.0          h06a4308_3561    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+jbig                      2.1               h7f98852_2003    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+jpeg                      9e                   h166bdaf_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+kiwisolver                1.4.2                    pypi_0    pypi
+lame                      3.100             h7f98852_1001    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lcms2                     2.12                 hddcbb42_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+ld_impl_linux-64          2.36.1               hea4e1c9_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lerc                      3.0                  h9c3ff4c_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libdeflate                1.10                 h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libffi                    3.4.2                h7f98852_5    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libgcc-ng                 11.2.0              h1d223b6_16    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libgomp                   11.2.0              h1d223b6_16    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libiconv                  1.16                 h516909a_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libnsl                    2.0.0                h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libpng                    1.6.37               h21135ba_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libstdcxx-ng              11.2.0              he4da1e4_16    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libtiff                   4.3.0                h542a066_3    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libuuid                   2.32.1            h7f98852_1000    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libuv                     1.43.0               h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libwebp                   1.2.2                h3452ae3_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libwebp-base              1.2.2                h7f98852_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libxcb                    1.13              h7f98852_1004    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+libzlib                   1.2.11            h166bdaf_1014    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+lz4-c                     1.9.3                h9c3ff4c_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+matplotlib                3.5.1                    pypi_0    pypi
+mkl                       2021.4.0           h06a4308_640    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+mkl-service               2.4.0            py39h7e14d7c_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mkl_fft                   1.3.1            py39h0c7bc48_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mkl_random                1.2.2            py39hde0f152_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+mypy-extensions           0.4.3                    pypi_0    pypi
+ncurses                   6.3                  h27087fc_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+nettle                    3.6                  he412f7d_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+numpy                     1.21.5           py39he7a7128_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+numpy-base                1.21.5           py39hf524024_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+openh264                  2.1.1                h780b84a_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+openjpeg                  2.4.0                hb52868f_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+openssl                   3.0.2                h166bdaf_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+packaging                 21.3                     pypi_0    pypi
+pandas                    1.4.2                    pypi_0    pypi
+pathspec                  0.9.0                    pypi_0    pypi
+pillow                    9.1.0            py39hae2aec6_2    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+pip                       22.0.4             pyhd8ed1ab_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+platformdirs              2.5.2                    pypi_0    pypi
+pthread-stubs             0.4               h36c2ea0_1001    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+pyparsing                 3.0.8                    pypi_0    pypi
+python                    3.9.12          h2660328_1_cpython    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+python-dateutil           2.8.2                    pypi_0    pypi
+python_abi                3.9                      2_cp39    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+pytorch                   1.10.1          py3.9_cuda11.1_cudnn8.0.5_0    <unknown>
+pytorch-mutex             1.0                        cuda    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+pytz                      2022.1                   pypi_0    pypi
+readline                  8.1                  h46c0cb4_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+scipy                     1.8.0                    pypi_0    pypi
+seaborn                   0.11.2                   pypi_0    pypi
+setuptools                62.1.0           py39hf3d152e_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+six                       1.16.0             pyh6c4a22f_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+sqlite                    3.38.2               h4ff8645_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+tk                        8.6.12               h27826a3_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+tomli                     2.0.1                    pypi_0    pypi
+torchvision               0.11.2               py39_cu111    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+tqdm                      4.64.0                   pypi_0    pypi
+typing_extensions         4.2.0              pyha770c72_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+tzdata                    2022a                h191b570_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+wheel                     0.37.1             pyhd8ed1ab_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+xorg-libxau               1.0.9                h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+xorg-libxdmcp             1.1.3                h7f98852_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+xz                        5.2.5                h516909a_1    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+zlib                      1.2.11            h166bdaf_1014    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+zstd                      1.5.2                ha95c52a_0    https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+```
+由此我们就明白了：**如果激活了某个conda虚拟环境，这时候再运行`conda list`命令，看到的就是这个虚拟环境中的包。在激活了某个conda虚拟环境的前提下运行conda install命令，就会把包安装在这个当前激活的conda虚拟环境中。**
+
+### 4.更新conda
+``` bash
+conda update -n base -c defaults conda
+```
+使用这个命令来更新conda。
+
+---
+
 至此，环境就算是配置好了，更多的问题可以搜索网上的资料自行解决。可以开始进行正式的开发了。
