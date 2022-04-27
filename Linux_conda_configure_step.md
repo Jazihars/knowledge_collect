@@ -69,12 +69,12 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
 ### 5.修改conda虚拟环境的默认安装路径：
 **（注意：这一步是可选的。如果`/home`目录空间足够大，这一步是不需要的。）**
 
-众所周知，一般来说，home目录无法存放过多的环境，因此有必要换一个空间足够大的地方，来安装以后的众多conda虚拟环境。在home目录下，有一个隐藏的文件`.condarc`。使用`code .condarc`打开`.condarc`文件，在最下面添加如下的代码：
+众所周知，一般来说，home目录无法存放过多的环境，因此有必要换一个空间足够大的地方，来安装以后的众多conda虚拟环境。在home目录下，有一个隐藏的文件`.condarc`。使用`code .condarc`命令打开`.condarc`文件，在最下面添加如下的代码：
 ```
 envs_dirs:  
-  - /data/Jazihars/conda_env
+  - /data/XXX/conda_env
 ```
-表明今后的conda虚拟环境都会被装在`/data/Jazihars/conda_env`目录下。
+表明今后的conda虚拟环境都会被装在`/data/XXX/conda_env`目录下。
 
 至此，Miniconda的安装和配置工作就算是完成了。下面，我们来实际安装一个conda虚拟环境。
 
@@ -131,7 +131,7 @@ Built on Tue_Sep_15_19:10:02_PDT_2020
 Cuda compilation tools, release 11.1, V11.1.74
 Build cuda_11.1.TC455_06.29069683_0
 ```
-这说明，我的开发机上安装的`cuda`版本是`11.1`。因此，我们选择cuda11.1版本的PyTorch和torchvision包，我们选择两个相对较新的，因此选择了`pytorch-1.10.1-py3.9_cuda11.1_cudnn8.0.5_0.tar.bz2`和`torchvision-0.11.1-py39_cu111.tar.bz2`这两个包。
+这说明，我的开发机上安装的`cuda`版本是`11.1`。因此，我们选择`cuda-11.1`版本的`PyTorch`和`torchvision`包，我们选择两个相对较新的，因此选择了`pytorch-1.10.1-py3.9_cuda11.1_cudnn8.0.5_0.tar.bz2`和`torchvision-0.11.1-py39_cu111.tar.bz2`这两个包。
 
 我们现在自己的本地下载这两个包，再用`MobaXterm`把这两个安装包上传到开发机上的`/home/users/XXX/miniconda3/pkgs`目录下。然后进入`/home/users/XXX/miniconda3/pkgs`目录，在这个目录为当前目录的前提下，运行下述两个命令：
 ``` bash
@@ -302,3 +302,5 @@ zstd                      1.5.2                ha95c52a_0    https://mirrors.tun
 pip list
 ```
 也可以查看当前虚拟环境安装的软件包。
+
+至此，环境就算是配置好了，更多的问题可以搜索网上的资料自行解决。可以开始进行正式的开发了。
